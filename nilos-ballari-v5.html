@@ -1,0 +1,604 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Niloş Balları | Erzurum Yaylalarından Doğal Bal ve Süt Ürünleri</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        :root {
+            --bg: #fff7e5;
+            --card: #ffffff;
+            --primary: #f4a623;
+            --primary-deep: #d48506;
+            --accent: #0dbb4f;
+            --text: #3b2c19;
+            --muted: #9c7b4b;
+            --border-soft: #f0dfc1;
+            --radius-xl: 22px;
+            --shadow-soft: 0 18px 45px rgba(0,0,0,0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top, #ffeec4 0, #fffaf1 42%, #ffffff 100%);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 26px auto 40px;
+            padding: 0 16px 32px;
+        }
+
+        /* HEADER + LOGO */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 18px 22px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.97);
+            box-shadow: 0 18px 45px rgba(0,0,0,0.08);
+            border: 1px solid rgba(244, 166, 35, 0.3);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 12px;
+            z-index: 20;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo-badge {
+            position: relative;
+            width: 54px;
+            height: 54px;
+            border-radius: 22px;
+            background: radial-gradient(circle at 30% 20%, #ffe6a3 0, #f4a623 30%, #d48506 90%);
+            box-shadow:
+                0 10px 25px rgba(0,0,0,0.18),
+                0 0 0 1px rgba(255,255,255,0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .logo-hex {
+            position: absolute;
+            width: 38px;
+            height: 38px;
+            transform: rotate(30deg);
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 0 1px rgba(208,117,0,0.5) inset;
+        }
+        .logo-hex::before,
+        .logo-hex::after {
+            content: "";
+            position: absolute;
+            inset: 6px;
+            border-radius: inherit;
+            border: 2px solid rgba(255,255,255,0.8);
+        }
+        .logo-hex::after {
+            inset: 11px;
+            border-color: rgba(255,255,255,0.55);
+        }
+
+        .logo-drop {
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            width: 18px;
+            height: 18px;
+            transform: translateX(-50%);
+        }
+        .logo-drop::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 50% 50% 60% 60%;
+            background: radial-gradient(circle at 30% 20%, #fff8d4 0, #ffd160 30%, #f4a623 70%, #c86e00 100%);
+            box-shadow: 0 5px 8px rgba(0,0,0,0.3);
+        }
+        .logo-drop::after {
+            content: "";
+            position: absolute;
+            top: -7px;
+            left: 50%;
+            width: 11px;
+            height: 11px;
+            transform: translateX(-50%);
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 20%, #fffef7 0, #ffe8a8 40%, #f4a623 100%);
+        }
+
+        .logo-mark-n {
+            position: relative;
+            z-index: 1;
+            font-weight: 900;
+            font-size: 26px;
+            color: #fff9e6;
+            text-shadow:
+                0 0 14px rgba(0,0,0,0.28),
+                0 1px 0 rgba(0,0,0,0.8);
+            letter-spacing: 0.03em;
+        }
+
+        .brand-text-main {
+            font-weight: 800;
+            font-size: 1.3rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #4b3018;
+        }
+        .brand-text-sub {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--muted);
+        }
+
+        .header-contact {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 2px;
+            font-size: 0.82rem;
+        }
+        .header-contact span {
+            color: var(--muted);
+        }
+        .phone-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 14px;
+            border-radius: 999px;
+            background: #1a472a;
+            color: #fffdf6;
+            font-weight: 600;
+            font-size: 0.86rem;
+            text-decoration: none;
+            box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+        }
+        .phone-pill::before {
+            content: "☎";
+            font-size: 0.9rem;
+        }
+
+        /* HERO */
+        .hero {
+            margin-top: 26px;
+            padding: 28px 24px 24px;
+            border-radius: var(--radius-xl);
+            background: #fffaf1;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(244, 166, 35, 0.38);
+        }
+        .hero-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #3e2a16;
+            margin-bottom: 12px;
+        }
+        .hero-title span {
+            background: linear-gradient(120deg, #f4a623, #ffcf5c);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .hero-text {
+            font-size: 0.98rem;
+            color: #5a4330;
+            margin-bottom: 16px;
+        }
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+        .tag {
+            font-size: 0.8rem;
+            padding: 6px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(244,166,35,0.45);
+            background: rgba(255,255,255,0.9);
+            color: #7b5528;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 18px;
+        }
+
+        .btn-primary {
+            flex: 1 1 210px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 16px;
+            border-radius: 999px;
+            background: var(--accent);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+        }
+        .btn-primary::before {
+            content: "📲";
+        }
+
+        .btn-outline {
+            flex: 1 1 180px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 11px 16px;
+            border-radius: 999px;
+            border: 1px solid rgba(122, 83, 36, 0.4);
+            background: rgba(255,255,255,0.9);
+            color: #5b3a1e;
+            font-weight: 600;
+            font-size: 0.92rem;
+            text-decoration: none;
+        }
+        .btn-outline::before {
+            content: "🛒";
+        }
+
+        .hero-highlight {
+            margin-top: 18px;
+            padding: 16px 18px 14px;
+            border-radius: 18px;
+            border: 1px dashed rgba(221, 171, 92, 0.9);
+            background: #fff7e7;
+        }
+        .hero-highlight-title {
+            font-weight: 700;
+            font-size: 1.02rem;
+            color: #4b3018;
+            margin-bottom: 4px;
+        }
+        .hero-highlight p {
+            font-size: 0.9rem;
+            color: #6b5235;
+            margin-bottom: 4px;
+        }
+        .hero-highlight strong {
+            font-size: 1rem;
+        }
+
+        /* PRODUCT LIST */
+        .section-title {
+            margin-top: 28px;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #3d2815;
+        }
+
+        .product-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .product-card {
+            position: relative;
+            border-radius: var(--radius-xl);
+            background: var(--card);
+            box-shadow: 0 14px 34px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-soft);
+            padding: 16px 16px 14px;
+        }
+        .product-category {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #b08435;
+            margin-bottom: 6px;
+        }
+        .product-name {
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: #3c260f;
+            margin-bottom: 4px;
+        }
+        .product-desc {
+            font-size: 0.9rem;
+            color: #6b5235;
+            margin-bottom: 6px;
+        }
+        .product-meta {
+            font-size: 0.82rem;
+            color: #a08155;
+            margin-bottom: 10px;
+        }
+        .product-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .product-price {
+            font-weight: 800;
+            font-size: 1.05rem;
+            color: #3c260f;
+        }
+        .product-price span {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #7a5b34;
+        }
+
+        .btn-order {
+            padding: 8px 16px;
+            border-radius: 999px;
+            border: none;
+            background: var(--accent);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.88rem;
+            text-decoration: none;
+            min-width: 104px;
+            text-align: center;
+            box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+        }
+
+        /* CONTACT & FOOTER */
+        .contact {
+            margin-top: 26px;
+            padding: 18px 20px 14px;
+            border-radius: 18px;
+            border: 1px dashed rgba(221, 171, 92, 0.9);
+            background: #fffaf1;
+        }
+        .contact h3 {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+            color: #3b2613;
+        }
+        .contact p {
+            font-size: 0.9rem;
+            color: #5a4330;
+            margin-bottom: 6px;
+        }
+        .contact a {
+            color: #1a472a;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .contact a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 24px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #9b7c52;
+        }
+        footer strong {
+            color: #4b3018;
+        }
+
+        @media (max-width: 720px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                border-radius: 28px;
+            }
+            .header-contact {
+                align-items: flex-start;
+            }
+            .hero {
+                padding: 22px 18px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <header>
+        <div class="brand">
+            <div class="logo-badge" aria-label="Niloş Balları kurumsal logo">
+                <div class="logo-hex"></div>
+                <div class="logo-drop"></div>
+                <div class="logo-mark-n">N</div>
+            </div>
+            <div>
+                <div class="brand-text-main">Niloş Balları</div>
+                <div class="brand-text-sub">Erzurum Yöresel Lezzetleri</div>
+            </div>
+        </div>
+        <div class="header-contact">
+            <span>Sipariş &amp; bilgi hattı</span>
+            <a class="phone-pill" href="tel:05424613204">0542 461 32 04</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1 class="hero-title">
+                Erzurum yaylalarından <span>doğal bal</span> ve süt ürünleri
+            </h1>
+            <p class="hero-text">
+                Niloş Balları; katkısız bal, tereyağı, peynir, pekmez ve pestil gibi Erzurum yöresine ait ürünleri
+                kapınıza kadar getirir. Ailenizle güvenle tüketebileceğiniz, güvenilir üreticilerden seçilmiş doğal lezzetler sunar.
+            </p>
+
+            <div class="hero-tags">
+                <span class="tag">%100 Doğal</span>
+                <span class="tag">Erzurum Yöresi</span>
+                <span class="tag">Kargo / Elden Teslim</span>
+            </div>
+
+            <div class="hero-buttons">
+                <a class="btn-primary" href="https://wa.me/905424613204?text=Merhaba%2C%20Nilo%C5%9F%20Ballar%C4%B1%20i%C3%A7in%20sipari%C5%9F%20vermek%20istiyorum." target="_blank" rel="noopener">
+                    WhatsApp ile Sipariş Ver
+                </a>
+                <a class="btn-outline" href="#urunler">Ürünleri Gör</a>
+            </div>
+
+            <div class="hero-highlight">
+                <div class="hero-highlight-title">Nilay Altın Kovan Özel Seri</div>
+                <p>Özel seçilmiş kovanlardan elde edilen sınırlı üretim premium bal.</p>
+                <p><strong>1.000 TL / kg</strong></p>
+            </div>
+        </section>
+
+        <h2 class="section-title" id="urunler">Satışta Olan Ürünler</h2>
+        <section class="product-list">
+
+            <!-- BAL -->
+            <article class="product-card">
+                <div class="product-category">Bal</div>
+                <div class="product-name">Kaset Bal (Şeker Hastalarına Uygun)</div>
+                <div class="product-desc">Katkısız doğal kaset bal.</div>
+                <div class="product-meta">Erzurum yaylaları</div>
+                <div class="product-bottom">
+                    <div class="product-price">750 TL <span>/ kg</span></div>
+                    <a class="btn-order" href="https://wa.me/905424613204?text=Kaset%20Bal%20(%C5%9Eeker%20Hastalar%C4%B1na%20Uygun)%20sipari%C5%9Fi%20vermek%20istiyorum." target="_blank" rel="noopener">Sipariş Ver</a>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="product-category">Bal</div>
+                <div class="product-name">Çiçek Balı</div>
+                <div class="product-desc">Erzurum yaylalarının nefis aromalı doğal çiçek balı.</div>
+                <div class="product-meta">Tamamen doğal • Saf bal</div>
+                <div class="product-bottom">
+                    <div class="product-price">600 TL <span>/ kg</span></div>
+                    <a class="btn-order" href="https://wa.me/905424613204?text=%C3%87i%C3%A7ek%20Bal%C4%B1%20sipari%C5%9Fi%20vermek%20istiyorum." target="_blank" rel="noopener">Sipariş Ver</a>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="product-category">Bal</div>
+                <div class="product-name">Karakovan Balı</div>
+                <div class="product-desc">Tamamen doğal karakovan balı. Geleneksel yöntemlerle üretilmiştir.</div>
+                <div class="product-meta">Saf bal • Yüksek aromalı</div>
+                <div class="product-bottom">
+                    <div class="product-price">750 TL <span>/ kg</span></div>
+                    <a class="btn-order" href="https://wa.me/905424613204?text=Karakovan%20Bal%C4%B1%20sipari%C5%9Fi%20vermek%20istiyorum." target="_blank" rel="noopener">Sipariş Ver</a>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="product-category">Bal</div>
+                <div class="product-name">Nilay Altın Kovan Özel Bal</div>
+                <div class="product-desc">Sınırlı üretim premium bal.</div>
+                <div class="product-meta">Özel seçilmiş kovanlardan • Erzurum yaylaları</div>
+                <div class="product-bottom">
+                    <div class="product-price">1.000 TL <span>/ kg</span></div>
+                    <a class="btn-order" href="https://wa.me/905424613204?text=Nilay%20Alt%C4%B1n%20Kovan%20%C3%96zel%20Bal%20sipari%C5%9Fi%20vermek%20istiyorum." target="_blank" rel="noopener">Sipariş Ver</a>
+                </div>
+            </article>
+
+            <!-- PEKMEZ -->
+            <article class="product-card">
+                <div class="product-category">Pekmez</div>
+                <div class="product-name">Dut Pekmezi</div>
+                <div class="product-desc">Erzurum yöresinin doğal dut pekmezi.</div>
+                <div class="product-meta">Katkısız üretim</div>
+                <div class="product-bottom">
+                    <div class="product-price">500 TL <span>/ kg</span></div>
+                    <a class="btn-order" href="https://wa.me/905424613204?text=Dut%20Pekmezi%20sipari%C5%9Fi%20vermek%20istiyorum." target="_blank" rel="noopener">Sipariş Ver</a>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="product-category">Pekmez</div>
+                <div class="product-name">Üzüm Pekmezi</div>
+                <div class="product-desc">Geleneksel yöntemlerle kaynatılmış Erzurum üzüm pekmezi.</div>
+                <div class="product-meta">Şeker ilavesiz</div>
+                <div class="product-bottom">
+                    <div class="product-price">500 TL <span>/ kg</span></div>
+                    <a class="btn-order" href="https://wa.me/905424613204?text=%C3%9Cz%C3%BCm%20Pekmezi%20sipari%C5%9Fi%20vermek%20istiyorum." target="_blank" rel="noopener">Sipariş Ver</a>
+                </div>
+            </article>
+
+            <!-- PESTİL -->
+            <article class="product-card">
+                <div class="product-category">Yöresel Tatlı</div>
+                <div class="product-name">Pestil</div>
+                <div class="product-desc">Doğal Erzurum pestili.</div>
+                <div class="product-meta">Pekmezle hazırlanmıştır</div>
+                <div class="product-bottom">
+                    <div class="product-price">450 TL <span>/ kg</span></div>
+                    <a class="btn-order" href="https://wa.me/905424613204?text=Pestil%20sipari%C5%9Fi%20vermek%20istiyorum." target="_blank" rel="noopener">Sipariş Ver</a>
+                </div>
+            </article>
+
+            <!-- PEYNİR -->
+            <article class="product-card">
+                <div class="product-category">Peynir</div>
+                <div class="product-name">Kars Eski Kaşarı</div>
+                <div class="product-desc">Olgunlaştırılmış tam yağlı eski kaşar.</div>
+                <div class="product-meta">Kahvaltı ve tost için ideal</div>
+                <div class="product-bottom">
+                    <div class="product-price">500 TL <span>/ kg</span></div>
+                    <a class="btn-order" href="https://wa.me/905424613204?text=Kars%20Eski%20Ka%C5%9Far%C4%B1%20sipari%C5%9Fi%20vermek%20istiyorum." target="_blank" rel="noopener">Sipariş Ver</a>
+                </div>
+            </article>
+
+            <!-- TEREYAĞI -->
+            <article class="product-card">
+                <div class="product-category">Tereyağı</div>
+                <div class="product-name">Köy Tereyağı</div>
+                <div class="product-desc">Erzurum köy sütlerinden elde edilen doğal tereyağı.</div>
+                <div class="product-meta">Tuzlu / Tuzsuz seçenekli</div>
+                <div class="product-bottom">
+                    <div class="product-price">450 TL <span>/ kg</span></div>
+                    <a class="btn-order" href="https://wa.me/905424613204?text=K%C3%B6y%20Tereya%C4%9F%C4%B1%20sipari%C5%9Fi%20vermek%20istiyorum." target="_blank" rel="noopener">Sipariş Ver</a>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="product-category">Tereyağı</div>
+                <div class="product-name">Yayla Tereyağı</div>
+                <div class="product-desc">Yüksek rakımlı Erzurum yaylalarında otlayan hayvanların sütünden elde edilen tereyağı.</div>
+                <div class="product-meta">Yoğun aromalı</div>
+                <div class="product-bottom">
+                    <div class="product-price">550 TL <span>/ kg</span></div>
+                    <a class="btn-order" href="https://wa.me/905424613204?text=Yayla%20Tereya%C4%9F%C4%B1%20sipari%C5%9Fi%20vermek%20istiyorum." target="_blank" rel="noopener">Sipariş Ver</a>
+                </div>
+            </article>
+
+        </section>
+
+        <section class="contact" id="iletisim">
+            <h3>İletişim &amp; Sipariş</h3>
+            <p>Ürünler hakkında detaylı bilgi almak, güncel stok ve kargo seçeneklerini öğrenmek için bizimle iletişime geçebilirsiniz.</p>
+            <p><strong>Telefon / WhatsApp:</strong> <a href="tel:05424613204">0542 461 32 04</a></p>
+            <p><strong>WhatsApp Hattı:</strong> <a href="https://wa.me/905424613204" target="_blank" rel="noopener">Mesaj Gönder</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <strong>Web tasarım:</strong> Fatih Akdeniz – Elektronik Mühendisi<br />
+        <span>Niloş Balları için hazırlanmış tanıtım sayfasıdır.</span>
+    </footer>
+</div>
+</body>
+</html>

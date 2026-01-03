@@ -392,6 +392,85 @@
             text-decoration: underline;
         }
 
+        /* AI ASSISTANT */
+        .ai-assistant {
+            margin-top: 26px;
+            padding: 20px 20px 18px;
+            border-radius: 18px;
+            border: 1px solid rgba(244, 166, 35, 0.38);
+            background: linear-gradient(135deg, #fff9ec, #fff3da);
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.06);
+        }
+        .ai-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+        .ai-emoji {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
+            background: radial-gradient(circle at 30% 30%, #ffd3c5 0, #ff4f47 60%, #bf1f1b 100%);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+            font-size: 1.6rem;
+        }
+        .ai-title {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: #3b2613;
+        }
+        .ai-subtitle {
+            font-size: 0.92rem;
+            color: #5a4330;
+            margin-top: 2px;
+        }
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+            margin-top: 14px;
+        }
+        .ai-card {
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid rgba(244, 166, 35, 0.2);
+            color: #4b3018;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+        }
+        .ai-card strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
+        }
+        .ai-chat {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .ai-bubble {
+            padding: 10px 12px;
+            border-radius: 14px;
+            font-size: 0.9rem;
+            line-height: 1.55;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+        }
+        .ai-bubble.user {
+            background: #f7e7c8;
+            align-self: flex-start;
+            border: 1px solid rgba(180, 140, 70, 0.25);
+        }
+        .ai-bubble.bot {
+            background: #e8f5ec;
+            align-self: flex-end;
+            border: 1px solid rgba(13, 187, 79, 0.25);
+        }
+
         footer {
             margin-top: 24px;
             text-align: center;
@@ -585,6 +664,36 @@
                 </div>
             </article>
 
+        </section>
+
+        <section class="ai-assistant" aria-labelledby="is-guvenligi-ai">
+            <div class="ai-header">
+                <span class="ai-emoji" role="img" aria-label="Kırmızı baret ve yelek">⛑️🦺</span>
+                <div>
+                    <div class="ai-title" id="is-guvenligi-ai">İş Güvenliği Sohbet Asistanı</div>
+                    <div class="ai-subtitle">Kırmızı baret ve yelek ruhuyla, uzun ve samimi sohbetler</div>
+                </div>
+            </div>
+            <div class="ai-grid">
+                <div class="ai-card">
+                    <strong>Uzun uzun sohbet eder</strong>
+                    Sorularınıza yalnızca yanıt vermekle kalmaz; örnekler, anekdotlar ve basit uygulama önerileriyle sohbeti zenginleştirir.
+                </div>
+                <div class="ai-card">
+                    <strong>İş güvenliği bilgisi</strong>
+                    Kişisel koruyucu donanım, risk değerlendirmesi, acil durum prosedürleri ve saha kontrol listeleri gibi konularda tutarlı öneriler verir.
+                </div>
+                <div class="ai-card">
+                    <strong>Samimi tavrı</strong>
+                    Nazik bir üslupla, hem ekip arkadaşlarınızı motive eder hem de güvenlik kültürünü güçlendirir.
+                </div>
+            </div>
+            <div class="ai-chat" aria-label="Örnek sohbet">
+                <div class="ai-bubble user">Kask ve yelek takmayı bazen unutuyoruz, bu konuda ekibi nasıl ikna edebiliriz?</div>
+                <div class="ai-bubble bot">
+                    Tabii, hemen konuşalım! ⛑️🦺 Önce kısa bir mola toplantısı düzenleyip gerçek kazalardan örnekler paylaşın; ardından ekipten iki gönüllü seçip doğru giyim adımlarını uygulamalı göstersinler. Son olarak, her vardiya başında üç maddelik mini kontrol listesi dağıtarak hatırlatmayı günlük rutine çevirin.
+                </div>
+            </div>
         </section>
 
         <section class="contact" id="iletisim">
